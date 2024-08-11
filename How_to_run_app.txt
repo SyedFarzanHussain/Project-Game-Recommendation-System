@@ -1,0 +1,15 @@
+1. Clone the Repository
+2. Install Dependencies: pip install -r requirements.txt
+3. Run the Jupyter Notebook:Open the Jupyter Notebook file and run the cells to set up the environment.
+4. Run the Streamlit Application:
+   	4.1: First, obtain your public IP address by running: !wget -q -O - ipv4.icanhazip.com
+	4.2: Then, start the Streamlit application and expose it using LocalTunnel with the following commands: !streamlit run app.py & npx localtunnel --port 8501
+	4.3: After running these commands, LocalTunnel will display a URL. Look for the line that starts with "your url is: " and copy that URL. When prompted for a tunnel password, enter the IP address you obtained earlier. This step is required to configure LocalTunnel to work correctly with your Streamlit app.
+	
+
+
+
+
+
+
+
