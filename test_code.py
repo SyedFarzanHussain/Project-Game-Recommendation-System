@@ -135,28 +135,7 @@ def low_rated():
         plt.title("Top 10 Low Rated Games",fontsize=16)
         st.pyplot()
 
-# Create a dropdown to select the plot
-selected_plot = st.selectbox('Select Plot', ['Distribution of Games', 'Game Reviews', 'Most Expensive Games', 'Low Rated Games'])
-plot_button = st.button('Plot')
 
-if plot_button:
-        if selected_plot == 'Distribution of Games':
-              game_distribution()
-        elif selected_plot == 'Game Reviews':
-              game_reviews()
-        elif selected_plot == 'Most Expensive Games':
-              game_price()
-        elif selected_plot == 'Low Rated Games':
-              low_rated()
-st.subheader("Top Rated Games List")
-table_button=st.button("Show")
-
-if table_button:
-
-  top_games=merge_data[['title','positive_ratio','user_reviews']].query('positive_ratio>80 and user_reviews>80000 ').sort_values(by='positive_ratio',ascending=False).copy()
-  top_games.reset_index(drop=True,inplace=True)
-  top_games.rename(columns={"title":"Game Title","positive_ratio":"Positive Ratio","user_reviews":"No of Reviews"},inplace=True)
-  st.table(top_games)
 
 #initializing stemming which is the process of reducing words to their word stem, base, or root form.
 
@@ -327,6 +306,31 @@ if st.button("Search"):
         st.subheader("User Personalized Algorithm")
 
         display_game(recommendations_3,6)
+
+
+
+# Create a dropdown to select the plot
+selected_plot = st.selectbox('Select Plot', ['Distribution of Games', 'Game Reviews', 'Most Expensive Games', 'Low Rated Games'])
+plot_button = st.button('Plot')
+
+if plot_button:
+        if selected_plot == 'Distribution of Games':
+              game_distribution()
+        elif selected_plot == 'Game Reviews':
+              game_reviews()
+        elif selected_plot == 'Most Expensive Games':
+              game_price()
+        elif selected_plot == 'Low Rated Games':
+              low_rated()
+st.subheader("Top Rated Games List")
+table_button=st.button("Show")
+
+if table_button:
+
+  top_games=merge_data[['title','positive_ratio','user_reviews']].query('positive_ratio>80 and user_reviews>80000 ').sort_values(by='positive_ratio',ascending=False).copy()
+  top_games.reset_index(drop=True,inplace=True)
+  top_games.rename(columns={"title":"Game Title","positive_ratio":"Positive Ratio","user_reviews":"No of Reviews"},inplace=True)
+  st.table(top_games)
 
 
 
