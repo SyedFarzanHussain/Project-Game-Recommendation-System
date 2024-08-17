@@ -221,7 +221,7 @@ def nn_recommender(game_):
 
 def Preffered_recommendation(game_list):
 
-  user_vector=np.zeros(6000)
+  user_vector=np.zeros(3000)
   game_vector=[]
   index_vector=[]
   result_tuple=[]
