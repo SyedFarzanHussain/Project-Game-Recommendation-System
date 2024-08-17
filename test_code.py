@@ -176,7 +176,7 @@ def expensive_computation():
 
       new_df['tags']=new_df['tags'].apply(stemming)
 
-      cv=CountVectorizer(max_features=2000,stop_words="english")
+      cv=CountVectorizer(max_features=1500,stop_words="english")
 
       vector=cv.fit_transform(new_df["tags"]).toarray()
 
@@ -219,7 +219,7 @@ def nn_recommender(game_):
 
 def Preffered_recommendation(game_list):
 
-  user_vector=np.zeros(2000)
+  user_vector=np.zeros(1500)
   game_vector=[]
   index_vector=[]
   result_tuple=[]
