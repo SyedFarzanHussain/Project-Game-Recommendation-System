@@ -1,28 +1,26 @@
 import nltk
 from nltk.tokenize import word_tokenize
-nltk.download('punkt')
-
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
-import math
 import pandas as pd
 from sklearn.feature_extraction.text import CountVectorizer
-import nltk
-from nltk.stem.porter import PorterStemmer
 from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.neighbors import NearestNeighbors
-import warnings
-warnings.filterwarnings("ignore")
 import streamlit as st
 import requests
 from io import BytesIO
 from PIL import Image
 import warnings
+from nltk.stem.porter import PorterStemmer
+
 warnings.filterwarnings("ignore")
 
+# Caching the nltk download to avoid redundant calls@st.cache_resource 
+def download_nltk_data():
+    nltk.download('punkt')
 
-#st.set_option('deprecation.showPyplotGlobalUse', False) #do not show warning when plotting on streamlit
+download_nltk_data()
 
 # Title and description of the Streamlit app
 st.title("GAME RECOMMENDATION SYSTEM")
@@ -178,7 +176,7 @@ def expensive_computation():
 
       new_df['tags']=new_df['tags'].apply(stemming)
 
-      cv=CountVectorizer(max_features=6000,stop_words="english")
+      cv=CountVectorizer(max_features=1000,stop_words="english")
 
       vector=cv.fit_transform(new_df["tags"]).toarray()
 
@@ -221,7 +219,7 @@ def nn_recommender(game_):
 
 def Preffered_recommendation(game_list):
 
-  user_vector=np.zeros(6000)
+  user_vector=np.zeros(1000)
   game_vector=[]
   index_vector=[]
   result_tuple=[]

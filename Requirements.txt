@@ -1,9 +1,9 @@
+streamlit
 nltk
 numpy
 matplotlib
 seaborn
 pandas
 scikit-learn
-streamlit
 requests
 Pillow
