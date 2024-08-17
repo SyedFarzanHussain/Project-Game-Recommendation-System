@@ -16,7 +16,8 @@ from nltk.stem.porter import PorterStemmer
 
 warnings.filterwarnings("ignore")
 
-# Caching the nltk download to avoid redundant calls@st.cache_resource 
+# Caching the nltk download to avoid redundant calls
+@st.cache_resource 
 def download_nltk_data():
     nltk.download('punkt')
 
@@ -40,7 +41,7 @@ merge_data=data.merge(meta_data,on="app_id")
 
 
 # Filtering out games with less reviews
-filter_=merge_data[merge_data['user_reviews']<500]
+filter_=merge_data[merge_data['user_reviews']<1000]
 merge_data.drop(filter_.index,inplace=True)
 
 # Cleaning data that do not have any description
