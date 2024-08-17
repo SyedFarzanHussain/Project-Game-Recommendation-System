@@ -33,7 +33,7 @@ st.write("2. Developing a custom Nearest Neighbour algorithm from scratch, ensur
 st.write("3. Implementing a user-personalized model that tracks individual search histories, enhancing recommendation accuracy over time.")
 
 # Reading datasets
-data=pd.read_csv("/content/games.csv")
+data=pd.read_csv("games.csv")
 meta_data=pd.read_json("games_metadata.json",lines=True)
 
 st.subheader("EXPLORATORY DATA ANALYSIS")
