@@ -178,7 +178,7 @@ def expensive_computation():
 
       new_df['tags']=new_df['tags'].apply(stemming)
 
-      cv=CountVectorizer(max_features=6000,stop_words="english")
+      cv=CountVectorizer(max_features=3000,stop_words="english")
 
       vector=cv.fit_transform(new_df["tags"]).toarray()
 
