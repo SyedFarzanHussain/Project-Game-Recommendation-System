@@ -34,7 +34,7 @@ st.write("3. Implementing a user-personalized model that tracks individual searc
 data=pd.read_csv("games.csv")
 meta_data=pd.read_json("games_metadata.json",lines=True)
 
-st.subheader("EXPLORATORY DATA ANALYSIS")
+
 # Merging datasets
 merge_data=data.merge(meta_data,on="app_id")
 
@@ -265,7 +265,7 @@ def display_game(recommendation_fetched,num_columns):
                 i+=1
 
 
-st.subheader("Recommender")
+st.subheader("RECOMMENDER")
 
 
 game_name = st.selectbox("Select a game", new_df['title'])
@@ -288,7 +288,7 @@ if st.button("Search"):
         recommendations_3 = Preffered_recommendation(st.session_state.games_list)
 
         # Display images and titles for Nearest Neighbors recommendations
-        st.subheader("Unsupervised Nearest Neighbors Algorithm")
+        st.subheader("1. Unsupervised Nearest Neighbors Algorithm")
 
         display_game(recommendations_2,4)
 
@@ -296,19 +296,19 @@ if st.button("Search"):
 
         # Display images and titles for Similarity Based recommendations
 
-        st.subheader("Similarity Based Recommendation")
+        st.subheader("2. Similarity Based Recommendation")
         display_game(recommendations_1,4)
 
 
 
 
         # Display images and titles for User Personalized Algorithm recommendations
-        st.subheader("User Personalized Algorithm")
+        st.subheader("3. User Personalized Algorithm")
 
         display_game(recommendations_3,6)
 
 
-
+st.subheader("EXPLORATORY DATA ANALYSIS")
 # Create a dropdown to select the plot
 selected_plot = st.selectbox('Select Plot', ['Distribution of Games', 'Game Reviews', 'Most Expensive Games', 'Low Rated Games'])
 plot_button = st.button('Plot')
